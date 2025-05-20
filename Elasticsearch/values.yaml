@@ -13,7 +13,7 @@ service:
 
 persistence:
   enabled: true
-  storageClass: "Standard"
+  storageClass: ""
   accessMode: ReadWriteOnce
   size: 5Gi
 
