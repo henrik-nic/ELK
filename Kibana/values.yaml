@@ -8,5 +8,6 @@ kibana:
   serviceAccountToken: "AAEAAWVsYXN0aWMva2liYW5hL2tpYmFuYS10b2tlbjpTTHllQUhNeFJzMkFUWnR2X0EzSFB3"
 
 service:
-  type: ClusterIP
-  port: 560
+  type: NodePort
+  port: 5601
+  nodePort: 30601
