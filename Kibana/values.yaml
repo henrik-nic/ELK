@@ -1,0 +1,12 @@
+image:
+  repository: docker.elastic.co/kibana/kibana
+  tag: 8.18.1
+  pullPolicy: IfNotPresent
+
+kibana:
+  elasticsearchHosts: http://elasticsearch:9200
+  serviceAccountToken: "AAEAAWVsYXN0aWMva2liYW5hL2tpYmFuYS10b2tlbjpTTHllQUhNeFJzMkFUWnR2X0EzSFB3"
+
+service:
+  type: ClusterIP
+  port: 560

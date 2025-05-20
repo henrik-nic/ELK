@@ -1,0 +1,5 @@
+apiVersion: v2
+name: elasticsearch-chart
+description: A Helm chart for running Elasticsearch
+version: 0.1.0
+appVersion: "8.18.1"

@@ -1,0 +1,27 @@
+image:
+  repository: docker.elastic.co/elasticsearch/elasticsearch
+  tag: 8.18.1
+  pullPolicy: IfNotPresent
+
+elasticsearch:
+  password: "changeme"
+  securityEnabled: true
+
+service:
+  type: ClusterIP
+  port: 9200
+
+persistence:
+  enabled: true
+  storageClass: ""
+  accessMode: ReadWriteOnce
+  size: 5Gi
+
+resources:
+  limits:
+    memory: "2Gi"
+  requests:
+    memory: "1Gi"
+
+ulimits:
+  memlock: true

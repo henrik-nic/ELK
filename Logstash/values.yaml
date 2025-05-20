@@ -1,0 +1,28 @@
+image:
+  repository: docker.elastic.co/logstash/logstash
+  tag: 8.18.1
+  pullPolicy: IfNotPresent
+
+logstash:
+  elasticUser: elastic
+  elasticPassword: changeme
+  elasticsearchHosts: http://elasticsearch:9200
+
+service:
+  type: ClusterIP
+  port: 5000
+
+pipeline:
+  config: |
+    input {
+      tcp {
+        port => 5000
+      }
+    }
+    output {
+      elasticsearch {
+        hosts => ["http://elasticsearch:9200"]
+        user => "elastic"
+        password => "changeme"
+      }
+    }

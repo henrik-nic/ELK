@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kibana
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kibana
+  template:
+    metadata:
+      labels:
+        app: kibana
+    spec:
+      containers:
+      - name: kibana
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        ports:
+        - containerPort: {{ .Values.service.port }}
+        env:
+        - name: ELASTICSEARCH_HOSTS
+          value: "{{ .Values.kibana.elasticsearchHosts }}"
+        - name: ELASTICSEARCH_SERVICEACCOUNTTOKEN
+          valueFrom:
+            secretKeyRef:
+              name: kibana-secret
+              key: serviceAccountToken
